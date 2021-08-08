@@ -1,0 +1,12 @@
+# arquivos pre-compilados
+.a
+.o
+
+#pastas de compilacao
+build
+
+#platformio
+.pio
+
+#vs code
+.code
