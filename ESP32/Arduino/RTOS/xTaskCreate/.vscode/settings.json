@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\Petrus\\.platformio\\penv\\Scripts;C:\\Users\\Petrus\\.platformio\\penv;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\GNU Tools ARM Embedded\\6 2017-q2-update\\bin;C:\\Users\\Petrus\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Petrus\\AppData\\Local\\hyper\\app-3.0.2\\resources\\bin;C:\\Users\\Petrus\\AppData\\Roaming\\npm;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\GNU Tools ARM Embedded\\6 2017-q2-update\\bin;C:\\Users\\Petrus\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Petrus\\AppData\\Local\\hyper\\app-3.0.2\\resources\\bin;C:\\Users\\Petrus\\AppData\\Roaming\\npm",
+        "PLATFORMIO_CALLER": "vscode"
+    }
+}
