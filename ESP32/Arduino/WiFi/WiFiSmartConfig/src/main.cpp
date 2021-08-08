@@ -39,7 +39,7 @@ void setup()
 
   WiFi.begin();
 
-  PORTA_SERIAL.println("Esperando conexao WiFi.");
+  PORTA_SERIAL.print("Esperando conexao WiFi.");
 
   // da ao ESP 10 segundos pra conectar ao roteador
   unsigned long startTime = millis();
@@ -52,6 +52,7 @@ void setup()
   if (WiFi.status() == WL_CONNECTED)
   {
     // imprime o IP
+    PORTA_SERIAL.println("conectado!");
     PORTA_SERIAL.print("Endereco IP: ");
     PORTA_SERIAL.println(WiFi.localIP());
     // blinker.detach();
