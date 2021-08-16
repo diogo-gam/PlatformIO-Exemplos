@@ -23,14 +23,14 @@
 void setup()
 {
   //Initialize serial and wait for port to open:
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial)
   {
     ; // wait for serial port to connect. Needed for native USB port only
   }
 
   // prints title with ending line break
-  Serial.println("ASCII Table ~ Character Map");
+  Serial.println("ASCII Table ~ Character Map v2");
 }
 
 // first visible ASCIIcharacter '!' is number 33:
@@ -74,7 +74,9 @@ void loop()
     // This loop loops forever and does nothing
     while (true)
     {
-      continue;
+      // continue;
+      Serial.printf("thisByte = %d\r\n", thisByte);
+      delay(1000);
     }
   }
   // go on to the next character
