@@ -1,5 +1,11 @@
 /**
- * exemplo basico piscando led e enviando olá na serial
+ * atenção: para debugar não pode pra usar os pinos do JTAG (12,13,14,15) 
+ * Conexões:
+ *  TMS = 14
+ *  TCK = 13
+ *  TDO = 15
+ *  TDI = 12
+ *  VCC = necessário
  * 
  */
 
