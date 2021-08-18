@@ -5,8 +5,9 @@
 
 #include <Arduino.h>
 #define DBG_OUTPUT_PORT Serial
-#define LED 13
-#define DELAY 1000
+#define LED 2
+
+int delayTime = 1000;
 
 void setup() {
   pinMode(LED, OUTPUT);
@@ -19,7 +20,7 @@ void loop() {
   DBG_OUTPUT_PORT.print("n = ");
   DBG_OUTPUT_PORT.println(n++);
   digitalWrite(LED, 0);
-  delay(DELAY);
+  delay(delayTime);
   digitalWrite(LED, 1);
-  delay(DELAY);            
+  delay(delayTime);            
 }
