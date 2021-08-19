@@ -6,7 +6,8 @@
 #include <STM32FreeRTOS.h>
 
 // Define the LED pin is attached
-const uint8_t LED_PIN = PC13;
+// const uint8_t LED_PIN = PC13; // bluepill/blackpill
+const uint8_t LED_PIN = LED_BUILTIN; // nucleo f103rb
 
 // Declare a semaphore handle.
 SemaphoreHandle_t sem;

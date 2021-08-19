@@ -8,9 +8,9 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/include",
-                "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/src",
-                "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/.pio/libdeps/nucleo_f103rb/STM32duino FreeRTOS/src",
+                "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/AnalogRead_DigitalRead/include",
+                "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/AnalogRead_DigitalRead/src",
+                "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/AnalogRead_DigitalRead/.pio/libdeps/nucleo_f103rb/STM32duino FreeRTOS/src",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/avr",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32/LL",
@@ -49,9 +49,9 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/include",
-                    "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/src",
-                    "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/.pio/libdeps/nucleo_f103rb/STM32duino FreeRTOS/src",
+                    "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/AnalogRead_DigitalRead/include",
+                    "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/AnalogRead_DigitalRead/src",
+                    "C:/Users/Petrus/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/AnalogRead_DigitalRead/.pio/libdeps/nucleo_f103rb/STM32duino FreeRTOS/src",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/avr",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32/LL",
