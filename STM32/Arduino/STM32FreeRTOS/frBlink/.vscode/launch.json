@@ -1,5 +1,5 @@
 // AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
-
+//
 // PIO Unified Debugger
 //
 // Documentation: https://docs.platformio.org/page/plus/debugging.html
@@ -12,23 +12,25 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "D:/Projetos/platformio/STM32/arduino-STM32FreeRTOS-Blink_AnalogRead - Copia/.pio/build/nucleo_f103rb/firmware.elf",
+            "executable": "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/.pio/build/STM32F401/firmware.elf",
+            "projectEnvName": "STM32F401",
             "toolchainBinDir": "C:/Users/Petrus/.platformio/packages/toolchain-gccarmnoneeabi/bin",
-            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F401x.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
-                "task": "Pre-Debug"
-            },
-            "internalConsoleOptions": "openOnSessionStart"
+                "task": "Pre-Debug (STM32F401)"
+            }
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "D:/Projetos/platformio/STM32/arduino-STM32FreeRTOS-Blink_AnalogRead - Copia/.pio/build/nucleo_f103rb/firmware.elf",
+            "executable": "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/STM32FreeRTOS/frBlink/.pio/build/STM32F401/firmware.elf",
+            "projectEnvName": "STM32F401",
             "toolchainBinDir": "C:/Users/Petrus/.platformio/packages/toolchain-gccarmnoneeabi/bin",
-            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd",
-            "internalConsoleOptions": "openOnSessionStart"
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F401x.svd"
         }
     ]
 }

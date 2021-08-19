@@ -6,7 +6,7 @@
 #include <STM32FreeRTOS.h>
 
 // Define the LED pin is attached
-const uint8_t LED_PIN = LED_BUILTIN;
+const uint8_t LED_PIN = PC13;
 
 // Declare a semaphore handle.
 SemaphoreHandle_t sem;
@@ -20,7 +20,6 @@ static void Thread1(void *arg)
   UNUSED(arg);
   while (1)
   {
-
     // Wait for signal from thread 2.
     xSemaphoreTake(sem, portMAX_DELAY);
 
@@ -44,15 +43,13 @@ static void Thread2(void *arg)
     digitalWrite(LED_PIN, HIGH);
 
     // Sleep for 200 milliseconds.
-    osDelay(200);
-    // vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
-
+    vTaskDelay(1000 / portTICK_PERIOD_MS); // osDelay(200);
+    
     // Signal thread 1 to turn LED off.
     xSemaphoreGive(sem);
 
     // Sleep for 200 milliseconds.
-    osDelay(200);
-    // vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
+    vTaskDelay(200 / portTICK_PERIOD_MS); // osDelay(200);
   }
 }
 //------------------------------------------------------------------------------
