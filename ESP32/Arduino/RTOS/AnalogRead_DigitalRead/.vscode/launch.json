@@ -12,25 +12,25 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "D:/Projetos/PlatformIO-Exemplos/ESP32/Arduino/RTOS/AnalogRead_DigitalRead/.pio/build/bluepill_f103c6/firmware.elf",
-            "projectEnvName": "bluepill_f103c6",
+            "executable": "D:/Projetos/PlatformIO-Exemplos/ESP32/Arduino/RTOS/AnalogRead_DigitalRead/.pio/build/STM32F401/firmware.elf",
+            "projectEnvName": "STM32F401",
             "toolchainBinDir": "C:/Users/Petrus/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd",
+            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F401x.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
-                "task": "Pre-Debug (bluepill_f103c6)"
+                "task": "Pre-Debug (STM32F401)"
             }
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "D:/Projetos/PlatformIO-Exemplos/ESP32/Arduino/RTOS/AnalogRead_DigitalRead/.pio/build/bluepill_f103c6/firmware.elf",
-            "projectEnvName": "bluepill_f103c6",
+            "executable": "D:/Projetos/PlatformIO-Exemplos/ESP32/Arduino/RTOS/AnalogRead_DigitalRead/.pio/build/STM32F401/firmware.elf",
+            "projectEnvName": "STM32F401",
             "toolchainBinDir": "C:/Users/Petrus/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd"
+            "svdPath": "C:/Users/Petrus/.platformio/platforms/ststm32/misc/svd/STM32F401x.svd"
         }
     ]
 }

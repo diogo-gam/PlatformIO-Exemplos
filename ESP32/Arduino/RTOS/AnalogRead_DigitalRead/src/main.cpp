@@ -1,15 +1,17 @@
 /*
  * Based on AnalogRead_DigitalRead example from: https://github.com/feilipu/Arduino_FreeRTOS_Library
  * Modified by: Frederic Pillon <frederic.pillon (at) st.com>
+ * Traduzido por Petrus Candido <petrusz1 (at) gmail.com>
+ * 
+ * TODO: Terminar de traduzir
  */
 
 #include <Arduino.h>
 #include <STM32FreeRTOS.h>
 
-// If no default pin for user button (USER_BTN) is defined, define it
+// Se não houver nennum pino definido para o botão do usuário, definimos um
 #ifndef USER_BTN
-#define USER_BTN PC_13
-
+#define USER_BTN PC_13 //Nucleo64
 #endif
 
 // #define USER_BTN PA0 //black pill
@@ -29,11 +31,6 @@ void setup()
   // initialize serial communication at 9600 bits per second:
   Serial.begin(115200);
 
-  while (!Serial)
-  {
-    ; // wait for serial port to connect. Needed for native USB, on LEONARDO, MICRO, YUN, and other 32u4 based boards.
-  }
-
   // Semaphores are useful to stop a Task proceeding, where it should be paused to wait,
   // because it is sharing a resource, such as the Serial port.
   // Semaphores should only be used whilst the scheduler is running, but we can set it up here.
@@ -44,29 +41,29 @@ void setup()
       xSemaphoreGive((xSerialSemaphore)); // Make the Serial Port available for use, by "Giving" the Semaphore.
   }
 
-  // Now set up two Tasks to run independently.
+  // criamos duas tarefas que vão rodar independentes
   xTaskCreate(
       TaskDigitalRead, (const portCHAR *)"DigitalRead" // A name just for humans
       ,
-      128 // This stack size can be checked & adjusted by reading the Stack Highwater
+      128 // tamanho da pilha pode ser analisada e ajustada usando o Stack Highwater
       ,
       NULL
       ,
-      2 // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+      2 // prioridade com 3 (configMAX_PRIORITIES - 1) sendo a maior e 0 sendo a menor
       ,
       NULL);
 
   xTaskCreate(
       TaskAnalogRead, (const portCHAR *)"AnalogRead",
-      128 // Stack size
+      128 // tamanho da pilha (memória)
       ,
       NULL
       , 
-      1 // Priority
+      1 // prioridade
       ,
       NULL);
 
-  // start scheduler
+  // Inicia o agendador de tarefas
   vTaskStartScheduler();
   Serial.println("Insufficient RAM");
   while (1)
@@ -75,11 +72,11 @@ void setup()
 
 void loop()
 {
-  // Empty. Things are done in Tasks.
+  // Vazio. tudo roda nas tarefas
 }
 
 /*--------------------------------------------------*/
-/*---------------------- Tasks ---------------------*/
+/*--------------------- Tarefas --------------------*/
 /*--------------------------------------------------*/
 
 void TaskDigitalRead(void *pvParameters __attribute__((unused))) // This is a Task.
@@ -100,19 +97,19 @@ void TaskDigitalRead(void *pvParameters __attribute__((unused))) // This is a Ta
   int buttonState;
   int lastbuttonState;
 
-  for (;;) // A Task shall never return or exit.
+  for (;;) // esta tarefa nunca deve retornar ou sair
   {
-    // read the input pin:
+    // lê o estado do pino de entrada
     buttonState = digitalRead(pushButton);
 
     // See if we can obtain or "Take" the Serial Semaphore.
     // If the semaphore is not available, wait 5 ticks of the Scheduler to see if it becomes free.
     if (xSemaphoreTake(xSerialSemaphore, (TickType_t)5) == pdTRUE)
     {
-      // We were able to obtain or "Take" the semaphore and can now access the shared resource.
-      // We want to have the Serial Port for us alone, as it takes some time to print,
-      // so we don't want it getting stolen during the middle of a conversion.
-      // print out the state of the button:
+      // Fomos capazes de obter ou "tomar" o semáfoto e agora podemos acessar o recurso compartilhado
+      // Nós queremos ter a porta serial somente para nós já que demora algum tempo para imprimir
+      // para que ele não seja 'roubado' durante uma conversão
+      // imprime o estado do botão
       if(buttonState != lastbuttonState){
         lastbuttonState = buttonState;
         if (buttonState == 0)
@@ -121,15 +118,14 @@ void TaskDigitalRead(void *pvParameters __attribute__((unused))) // This is a Ta
       // Serial.print("Button state: ");
       // Serial.println(buttonState);
 
-      xSemaphoreGive(xSerialSemaphore); // Now free or "Give" the Serial Port for others.
+      xSemaphoreGive(xSerialSemaphore); // Agora nos "damos" a porta serial para os outros
     }
 
-    // vTaskDelay(1); // one tick delay (15ms) in between reads for stability
     vTaskDelay(15 / portTICK_PERIOD_MS); // osDelay(15);
   }
 }
 
-void TaskAnalogRead(void *pvParameters __attribute__((unused))) // This is a Task.
+void TaskAnalogRead(void *pvParameters __attribute__((unused))) // Isto e uma tarefa
 {
 
   for (;;)
@@ -141,15 +137,15 @@ void TaskAnalogRead(void *pvParameters __attribute__((unused))) // This is a Tas
     // If the semaphore is not available, wait 5 ticks of the Scheduler to see if it becomes free.
     if (xSemaphoreTake(xSerialSemaphore, (TickType_t)5) == pdTRUE)
     {
-      // We were able to obtain or "Take" the semaphore and can now access the shared resource.
-      // We want to have the Serial Port for us alone, as it takes some time to print,
-      // so we don't want it getting stolen during the middle of a conversion.
-      // print out the value you read:
+      // Fomos capazes de obter ou "tomar" o semáfoto e agora podemos acessar o recurso compartilhado
+      // Nós queremos ter a porta serial somente para nós já que demora algum tempo para imprimir
+      // para que ele não seja 'roubado' durante uma conversão
+      // imprime a leitura analógica
       Serial.println(sensorValue);
 
-      xSemaphoreGive(xSerialSemaphore); // Now free or "Give" the Serial Port for others.
+      xSemaphoreGive(xSerialSemaphore); // Agora nos "damos" a porta serial para os outros
     }
 
-    vTaskDelay(500 / portTICK_PERIOD_MS); // osDelay(500);
+    vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }
