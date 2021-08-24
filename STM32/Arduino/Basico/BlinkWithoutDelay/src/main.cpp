@@ -1,5 +1,5 @@
 /*
- *  ESP8266 BlinkWithoutDelay by Simon Peter
+ *  
  *
  */
 
