@@ -113,35 +113,35 @@ void setup()
   // ArduinoOTA.setPasswordHash("21232f297a57a5a743894a0e4a801fc3");
 
   ArduinoOTA
-      .onStart([]() {
-        String type;
-        if (ArduinoOTA.getCommand() == U_FLASH)
-          type = "Programa";
-        else // U_SPIFFS
-          type = "FS";
+    .onStart([]() {
+      String type;
+      if (ArduinoOTA.getCommand() == U_FLASH)
+        type = "Programa";
+      else // U_SPIFFS
+        type = "FS";
 
-        // NOTA: se estiver atualizando o SPIFFS aqui é o lugar de desmontar o sistema de arquivos usando SPIFFS.end()
-        PORTA_SERIAL.println("Iniciando update " + type);
-      })
-      .onEnd([]() {
-        PORTA_SERIAL.println("\nFim");
-      })
-      .onProgress([](unsigned int progress, unsigned int total) {
-        PORTA_SERIAL.printf("Progresso: %u%%\r", (progress / (total / 100)));
-      })
-      .onError([](ota_error_t error) {
-        PORTA_SERIAL.printf("Erro[%u]: ", error);
-        if (error == OTA_AUTH_ERROR)
-          PORTA_SERIAL.println("Falha na autenticacao");
-        else if (error == OTA_BEGIN_ERROR)
-          PORTA_SERIAL.println("Falhou em iniciar");
-        else if (error == OTA_CONNECT_ERROR)
-          PORTA_SERIAL.println("Falhou em conectar");
-        else if (error == OTA_RECEIVE_ERROR)
-          PORTA_SERIAL.println("Falha no recebimento");
-        else if (error == OTA_END_ERROR)
-          PORTA_SERIAL.println("Falha na Finalizacao");
-      });
+      // NOTA: se estiver atualizando o SPIFFS aqui é o lugar de desmontar o sistema de arquivos usando SPIFFS.end()
+      PORTA_SERIAL.println("Iniciando update " + type);
+    })
+    .onEnd([]() {
+      PORTA_SERIAL.println("\nFim");
+    })
+    .onProgress([](unsigned int progress, unsigned int total) {
+      PORTA_SERIAL.printf("Progresso: %u%%\r", (progress / (total / 100)));
+    })
+    .onError([](ota_error_t error) {
+      PORTA_SERIAL.printf("Erro[%u]: ", error);
+      if (error == OTA_AUTH_ERROR)
+        PORTA_SERIAL.println("Falha na autenticacao");
+      else if (error == OTA_BEGIN_ERROR)
+        PORTA_SERIAL.println("Falhou em iniciar");
+      else if (error == OTA_CONNECT_ERROR)
+        PORTA_SERIAL.println("Falhou em conectar");
+      else if (error == OTA_RECEIVE_ERROR)
+        PORTA_SERIAL.println("Falha no recebimento");
+      else if (error == OTA_END_ERROR)
+        PORTA_SERIAL.println("Falha na Finalizacao");
+    });
 
   ArduinoOTA.begin();
 
