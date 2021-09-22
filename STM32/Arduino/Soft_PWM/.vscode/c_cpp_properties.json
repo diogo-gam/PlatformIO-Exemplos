@@ -8,8 +8,8 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/include",
-                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/src",
+                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Soft_PWM/include",
+                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Soft_PWM/src",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/avr",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32/LL",
@@ -48,8 +48,8 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/include",
-                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/src",
+                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Soft_PWM/include",
+                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Soft_PWM/src",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/avr",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32/LL",
