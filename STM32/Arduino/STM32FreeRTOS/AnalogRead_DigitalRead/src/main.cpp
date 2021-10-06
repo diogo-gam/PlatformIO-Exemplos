@@ -6,10 +6,7 @@
 #include <Arduino.h>
 #include <STM32FreeRTOS.h>
 
-// If no default pin for user button (USER_BTN) is defined, define it
-#ifndef USER_BTN
-#define USER_BTN PC_13
-#endif
+#define OUTPUT_PORT Serial
 
 // Declare a mutex Semaphore Handle which we will use to manage the Serial Port.
 // It will be used to ensure only only one Task is accessing this resource at any time.
@@ -24,12 +21,8 @@ void setup()
 {
 
   // initialize serial communication at 9600 bits per second:
-  Serial.begin(115200);
-
-  while (!Serial)
-  {
-    ; // wait for serial port to connect. Needed for native USB, on LEONARDO, MICRO, YUN, and other 32u4 based boards.
-  }
+  OUTPUT_PORT.begin(115200);
+  OUTPUT_PORT.println("--- STM32FreeRTOS Iniciado! ---");
 
   // Semaphores are useful to stop a Task proceeding, where it should be paused to wait,
   // because it is sharing a resource, such as the Serial port.
@@ -65,7 +58,7 @@ void setup()
 
   // start scheduler
   vTaskStartScheduler();
-  Serial.println("Insufficient RAM");
+  OUTPUT_PORT.println("Insufficient RAM");
   while (1)
     ;
 }
@@ -83,13 +76,13 @@ void TaskDigitalRead(void *pvParameters __attribute__((unused))) // This is a Ta
 {
   /*
     DigitalReadSerial
-    Reads a digital input on pin defined with USER_BTN, prints the result to the serial monitor
+    Reads a digital input on pin defined with USER_BUTTON, prints the result to the serial monitor
 
     This example code is in the public domain.
   */
 
-  // defined USER_BTN digital pin  has a pushbutton attached to it. Give it a name:
-  uint8_t pushButton = USER_BTN;
+  // defined USER_BUTTON digital pin  has a pushbutton attached to it. Give it a name:
+  uint8_t pushButton = USER_BUTTON;
 
   // make the pushbutton's pin an input:
   pinMode(pushButton, INPUT);
@@ -113,26 +106,25 @@ void TaskDigitalRead(void *pvParameters __attribute__((unused))) // This is a Ta
       if(buttonState != lastbuttonState){
         lastbuttonState = buttonState;
         if (buttonState == 0)
-          Serial.println("Botao acionado");
+          OUTPUT_PORT.println("Botao acionado");
       }
-      // Serial.print("Button state: ");
-      // Serial.println(buttonState);
+      // OUTPUT_PORT.print("Button state: ");
+      // OUTPUT_PORT.println(buttonState);
 
       xSemaphoreGive(xSerialSemaphore); // Now free or "Give" the Serial Port for others.
     }
 
-    // vTaskDelay(1); // one tick delay (15ms) in between reads for stability
-    osDelay(15);
+    vTaskDelay(15/portTICK_PERIOD_MS);
+
   }
 }
 
 void TaskAnalogRead(void *pvParameters __attribute__((unused))) // This is a Task.
 {
 
-  for (;;)
+  while(1)
   {
-    // read the input on analog pin 0:
-    int sensorValue = analogRead(A0);
+    int sensorValue = analogRead(A1);
 
     // See if we can obtain or "Take" the Serial Semaphore.
     // If the semaphore is not available, wait 5 ticks of the Scheduler to see if it becomes free.
@@ -142,11 +134,11 @@ void TaskAnalogRead(void *pvParameters __attribute__((unused))) // This is a Tas
       // We want to have the Serial Port for us alone, as it takes some time to print,
       // so we don't want it getting stolen during the middle of a conversion.
       // print out the value you read:
-      Serial.println(sensorValue);
+      OUTPUT_PORT.println(sensorValue);
 
       xSemaphoreGive(xSerialSemaphore); // Now free or "Give" the Serial Port for others.
     }
 
-    osDelay(500);
+    vTaskDelay(500/portTICK_PERIOD_MS);
   }
 }

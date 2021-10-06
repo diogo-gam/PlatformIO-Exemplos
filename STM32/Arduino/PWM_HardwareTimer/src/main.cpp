@@ -32,7 +32,7 @@ void setup()
 
   // Configure and start PWM
   // MyTim->setPWM(channel, pin, 5, 10, NULL, NULL); // No callback required, we can simplify the function call
-  MyTim->setPWM(channel, pin, 20000, 10); // 20khz, 10% dutycycle
+  MyTim->setPWM(channel, pin, 18000, 35); // 20khz, 10% dutycycle
 }
 
 

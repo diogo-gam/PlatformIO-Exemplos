@@ -8,8 +8,9 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/include",
-                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/src",
+                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/trunk/include",
+                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/trunk/src",
+                "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/trunk/.pio/libdeps/nucleo_f103rb/STM32duino FreeRTOS/src",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/avr",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32/LL",
@@ -48,8 +49,9 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/include",
-                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/Basico/BlinkWithoutDelay/src",
+                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/trunk/include",
+                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/trunk/src",
+                    "D:/Projetos/PlatformIO-Exemplos/STM32/Arduino/trunk/.pio/libdeps/nucleo_f103rb/STM32duino FreeRTOS/src",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/avr",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/cores/arduino/stm32/LL",
@@ -89,6 +91,7 @@
             "defines": [
                 "PLATFORMIO=50200",
                 "STM32F103xB",
+                "LED_PIN=PA5",
                 "STM32F1xx",
                 "ARDUINO=10808",
                 "ARDUINO_ARCH_STM32",

@@ -31,7 +31,7 @@ int soft_channels[N_SOFT_CHANNELS] = {SCH1, SCH2};
 int chState = 0;
 
 unsigned long previousMicros = 0;
-const long interval = 1;
+// const long interval = 1;
 
 void setup()
 {
@@ -60,6 +60,9 @@ void setup()
   {
     pinMode(soft_channels[i], OUTPUT);
   }
+
+  pinMode(LED, OUTPUT);
+
 
   OUTPUT_PORT.begin(115200);
   OUTPUT_PORT.println(F("\r\n\nSistema Iniciado:"));

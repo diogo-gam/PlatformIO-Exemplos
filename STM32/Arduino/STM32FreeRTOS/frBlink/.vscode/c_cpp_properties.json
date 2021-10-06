@@ -44,7 +44,6 @@
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/libraries/SoftwareSerial/src",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/libraries/SrcWrapper/src",
                 "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/libraries/Wire/src",
-                "C:/Users/Petrus/.platformio/packages/tool-unity",
                 ""
             ],
             "browse": {
@@ -86,13 +85,13 @@
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/libraries/SoftwareSerial/src",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/libraries/SrcWrapper/src",
                     "C:/Users/Petrus/.platformio/packages/framework-arduinoststm32/libraries/Wire/src",
-                    "C:/Users/Petrus/.platformio/packages/tool-unity",
                     ""
                 ]
             },
             "defines": [
-                "PLATFORMIO=50101",
+                "PLATFORMIO=50200",
                 "STM32F103xB",
+                "LED_PIN=PA5",
                 "STM32F1xx",
                 "ARDUINO=10808",
                 "ARDUINO_ARCH_STM32",

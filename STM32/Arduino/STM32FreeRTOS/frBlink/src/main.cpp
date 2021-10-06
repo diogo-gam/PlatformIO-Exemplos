@@ -6,8 +6,7 @@
 #include <STM32FreeRTOS.h>
 
 // Define the LED pin is attached
-// const uint8_t LED_PIN = PC13; // bluepill/blackpill
-const uint8_t LED_PIN = LED_BUILTIN; // nucleo f103rb
+const uint8_t LED = LED_PIN;
 
 // Declare a semaphore handle.
 SemaphoreHandle_t sem;
@@ -26,6 +25,7 @@ static void Thread1(void *arg)
 
     // Turn LED off.
     digitalWrite(LED_PIN, LOW);
+    Serial.println("LED Off");
   }
 }
 //------------------------------------------------------------------------------
@@ -42,15 +42,11 @@ static void Thread2(void *arg)
   {
     // Turn LED on.
     digitalWrite(LED_PIN, HIGH);
-
-    // Sleep for 200 milliseconds.
-    vTaskDelay(1000 / portTICK_PERIOD_MS); // osDelay(200);
-    
+    Serial.println("LED On");
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
     // Signal thread 1 to turn LED off.
     xSemaphoreGive(sem);
-
-    // Sleep for 200 milliseconds.
-    vTaskDelay(200 / portTICK_PERIOD_MS); // osDelay(200);
+    vTaskDelay(200 / portTICK_PERIOD_MS);
   }
 }
 //------------------------------------------------------------------------------
@@ -59,6 +55,8 @@ void setup()
   portBASE_TYPE s1, s2;
 
   Serial.begin(115200);
+  Serial.println("--- Sistema Iniciado ---");
+
 
   // initialize semaphore
   sem = xSemaphoreCreateCounting(1, 0);
